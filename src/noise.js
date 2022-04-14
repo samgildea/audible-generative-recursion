@@ -1,21 +1,10 @@
-
 import React, { useState, useEffect } from "react";
 import Sketch from "react-p5";
 import * as Tone from "tone";
 import Grain from "./grain.png";
 import styled from "styled-components";
 
-
-const GrainImage = styled.img`
-position: absolute;
-top: 0;
-width: 100vw;
-height: 100vh;
-opacity: 0.5;
-
-`
-
-function App() {
+function Noise() {
   const [windowWidth, setWindowWidth] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
 
@@ -57,7 +46,7 @@ function App() {
     p5.createCanvas(windowWidth, windowHeight).parent(canvasParentRef);
     p5.stroke(0, 18);
     p5.noFill();
-    p5.frameRate(30);
+    p5.frameRate(60);
     t = 0;
     // setStartingPosition({
     //   x: Math.random() * windowWidth,
@@ -275,10 +264,9 @@ function App() {
 
   return (
     <div>
-      <GrainImage src={Grain} />
       <Sketch setup={setup} draw={draw} />
     </div>
   );
 }
 
-export default App;
+export default Noise;

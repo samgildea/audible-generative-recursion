@@ -1,14 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Sequencer from "./Sequencer";
+import TapeLoop from "./TapeLoop";
+import Noise from "./noise"
+import Remix2 from "./Remix2"
+import Documentation from "./Documentation";
+import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<App />} />
+        <Route path="sequener" element={<App />} />
+        <Route path="documentation" element={<Documentation />} />
+
+        <Route path="tape" element={<TapeLoop />} />
+        <Route path="noise" element={<Noise />} />
+        <Route path="remix2" element={<Remix2 />} />
+
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
