@@ -1,19 +1,16 @@
-
 import React, { useState, useEffect } from "react";
 import Sketch from "react-p5";
 import * as Tone from "tone";
 import Grain from "./grain.png";
 import styled from "styled-components";
 
-
 const GrainImage = styled.img`
-position: absolute;
-top: 0;
-width: 100vw;
-height: 100vh;
-opacity: 0.5;
-
-`
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.5;
+`;
 
 function App() {
   const [windowWidth, setWindowWidth] = useState(0);
@@ -101,19 +98,18 @@ function App() {
   const draw = (p5) => {
     let n = 3;
     p5.background(
-      36 * p5.noise(t + 1),
-      22 * p5.noise(t + 1),
-      35 * p5.noise(t + 1),
+      2 * p5.noise(t + 1),
+      62 * p5.noise(t + 1),
+      138 * p5.noise(t + 1),
       50 * p5.noise(t + 1)
     );
-
     for (let x = 0; x < p5.width; x += 50) {
       for (let y = 0; y < p5.height; y += 50) {
         p5.noStroke();
         p5.fill(
-          199 * p5.noise(0.01 * startX, 0.01 * y),
-          239 * p5.noise(0.01 * x, 0.01 * p5.mouseY),
-          0 * p5.noise(0.01 * x, 0.01 * startY),
+          2 * p5.noise(0.01 * startX, 0.01 * y),
+          62 * p5.noise(0.01 * x, 0.01 * p5.mouseY),
+          138 * p5.noise(0.01 * x, 0.01 * startY),
           5
         );
 
@@ -124,17 +120,17 @@ function App() {
           y < startY + 10
         ) {
           p5.fill(
-            199 * p5.noise(0.01 * startX, 0.01 * y),
-            239 * p5.noise(0.01 * x, 0.01 * p5.mouseY),
-            0 * p5.noise(0.01 * x, 0.01 * startY),
+            2 * p5.noise(0.01 * startX, 0.01 * y),
+            62 * p5.noise(0.01 * x, 0.01 * p5.mouseY),
+            138 * p5.noise(0.01 * x, 0.01 * startY),
             15
           );
           p5.ellipse(x, y, 50, 50);
         } else {
           p5.fill(
-            199 * p5.noise(0.01 * startX, 0.01 * y),
-            239 * p5.noise(0.01 * x, 0.01 * p5.mouseY),
-            0 * p5.noise(0.01 * x, 0.01 * startY),
+            2 * p5.noise(0.01 * startX, 0.01 * y),
+            62 * p5.noise(0.01 * x, 0.01 * p5.mouseY),
+            138 * p5.noise(0.01 * x, 0.01 * startY),
             5
           );
           p5.rect(x, y, 50, 50);
@@ -146,9 +142,9 @@ function App() {
       for (let y = 0; y < p5.height; y += 25) {
         p5.noStroke();
         p5.fill(
-          199 * p5.noise(0.01 * p5.mouseX, 0.01 * y),
-          239 * p5.noise(0.01 * x, 0.01 * p5.mouseY),
-          0 * p5.noise(0.01 * x, 0.01 * startY),
+          2 * p5.noise(0.01 * p5.mouseX, 0.01 * y),
+          62 * p5.noise(0.01 * x, 0.01 * p5.mouseY),
+          138 * p5.noise(0.01 * x, 0.01 * startY),
           5
         );
 
@@ -161,9 +157,9 @@ function App() {
           p5.noStroke();
 
           p5.fill(
-            199 * p5.noise(0.01 * startX, 0.01 * y),
-            239 * p5.noise(0.01 * x, 0.01 * p5.mouseY),
-            0 * p5.noise(0.01 * x, 0.01 * startY),
+            144 * p5.noise(0.01 * startX, 0.01 * y),
+            224 * p5.noise(0.01 * x, 0.01 * p5.mouseY),
+            239 * p5.noise(0.01 * x, 0.01 * startY),
             255
           );
           p5.ellipse(x, y, 50, 50);
@@ -171,9 +167,9 @@ function App() {
           p5.noStroke();
 
           p5.fill(
-            199 * p5.noise(0.01 * startX, 0.01 * y),
-            239 * p5.noise(0.01 * x, 0.01 * p5.mouseY),
-            0 * p5.noise(0.01 * x, 0.01 * startY),
+            2 * p5.noise(0.01 * startX, 0.01 * y),
+            62 * p5.noise(0.01 * x, 0.01 * p5.mouseY),
+            138 * p5.noise(0.01 * x, 0.01 * startY),
             5
           );
           p5.rect(x, y, 50, 50);
@@ -199,14 +195,10 @@ function App() {
     var y2 = windowHeight * noiseWidth * p5.noise(t + 100);
     var y3 = windowHeight * noiseWidth * p5.noise(t + 200);
     var y4 = windowHeight * noiseWidth * p5.noise(t + 300);
-
-    var r = 199 * p5.noise(t + 10);
-    var g = 239 * p5.noise(t + 15);
-    var b = 0 * p5.noise(t + 20);
     p5.stroke(
-      199 * p5.noise(0.01 * startX, 0.01 * y2),
-      239 * p5.noise(0.01 * x1, 0.01 * p5.mouseY),
-      0 * p5.noise(0.01 * x1, 0.01 * startY),
+      144 * p5.noise(0.01 * startX, 0.01 * y2),
+      224 * p5.noise(0.01 * x1, 0.01 * p5.mouseY),
+      239 * p5.noise(0.01 * x1, 0.01 * startY),
       45
     );
     p5.strokeWeight(n);
@@ -253,9 +245,10 @@ function App() {
     }
 
     if (p5.mouseIsPressed) {
-      audio = !audio;
+      audio = true;
       Tone.start();
     }
+
 
     size += sizeIncrement;
 
