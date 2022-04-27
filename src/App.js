@@ -100,8 +100,8 @@ function App() {
   let colorIncrement = 0.5;
   let startX = startingPostion.x;
   let startY = startingPostion.y;
-  let speed = 20;
-  let speedY = 2;
+  let speed = 10;
+  let speedY = 8;
   let note1 = "";
 
   let size = 65;

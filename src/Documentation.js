@@ -113,7 +113,9 @@ export default function Documentation() {
           design degree project <br />
           northeastern university
         </SubHeader>
-
+        <NavLink href="https://github.com/samgildea/audible-generative-recursion">
+          <a href="https://github.com/samgildea/audible-generative-recursion">github repository</a>
+        </NavLink>
         <NavLink href="#intro">
           <a href="#intro">introduction</a>
         </NavLink>
@@ -131,7 +133,7 @@ export default function Documentation() {
         </NavLink>
       </NavBar>
 
-      <TextSection id="#intro">
+      <TextSection id="intro">
         <Name>Introduction </Name>
 
         <TextDescription>
@@ -187,7 +189,7 @@ export default function Documentation() {
 
         <img src={Example} />
       </TextSection>
-      <TextSection id="#audio">
+      <TextSection id="audio">
         <Name>audio with tone.js </Name>
 
         <TextDescription>
@@ -214,7 +216,7 @@ export default function Documentation() {
           synth.triggerAttackRelease("C4", "8n");
         </code>
       </TextSection>
-      <TextSection id="#generative">
+      <TextSection id="generative">
         <Name>generative system </Name>
         <TextDescription>
           There are two main elements of sound generation that are triggered
