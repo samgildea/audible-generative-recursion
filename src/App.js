@@ -12,6 +12,25 @@ const GrainImage = styled.img`
   opacity: 0.5;
 `;
 
+const HelpLink = styled.a`
+position: absolute;
+right: 10px;
+top: 10px;
+text-decoration: none;
+color: black;
+border: solid;
+padding: 10px;
+border-radius: 100px;
+
+&:hover {
+  color: red;
+}
+
+
+`
+
+
+
 function App() {
   const [windowWidth, setWindowWidth] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
@@ -270,6 +289,7 @@ function App() {
     <div>
       <GrainImage src={Grain} />
       <Sketch setup={setup} draw={draw} />
+      <HelpLink href="/documentation">?</HelpLink>
     </div>
   );
 }

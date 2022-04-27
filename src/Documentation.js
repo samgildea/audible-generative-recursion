@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import TapeLoop from "./tapeloo.gif";
-import TapeDiagram from "./tapeloop.png";
+import TapeDiagram from "./diagram.png";
 import Generation from "./generativesystem.png";
 import Background from "./background.png";
 import Example from "./p5.png";
@@ -12,6 +12,11 @@ const NavBar = styled.div`
   width: 27vw;
   border-right: solid;
   height: 100vh;
+  display: block;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const MainHeader = styled.div`
@@ -56,6 +61,15 @@ export const TextDescription = styled.div`
   width: 22vw;
   padding-top: 27px;
   width: 42vw;
+
+  a {
+    font-weight: bold;
+    color: black;
+  }
+
+  @media (max-width: 768px) {
+    width: 80vw;
+  }
 `;
 
 export const TextSection = styled.div`
@@ -68,12 +82,21 @@ export const TextSection = styled.div`
   img {
     width: 42vw;
     margin-top: 16px;
+    padding-top: 27px;
+    padding-bottom: 27px;
+  }
+
+  @media (max-width: 768px) {
+    width: 80vw;
+    margin-left: 6vw;
   }
 `;
 
 const MainContainer = styled.div`
-  background: url(${Background}) repeat;
-  background-position: top;
+  background: url(${Background});
+  background-size: contain;
+  background-repeat: repeat;
+  margin: 0 !important;
 `;
 
 export default function Documentation() {
@@ -91,30 +114,30 @@ export default function Documentation() {
           northeastern university
         </SubHeader>
 
-        <NavLink href="/">
-          <a href="/">introduction</a>
+        <NavLink href="#intro">
+          <a href="#intro">introduction</a>
         </NavLink>
-        <NavLink href="/">
-          <a href="/">technoligies used</a>
+        <NavLink href="#tech">
+          <a href="#tech">technoligies used</a>
         </NavLink>
-        <NavLink href="/">
-          <a href="/">visuals with p5.js</a>
+        <NavLink href="#p5">
+          <a href="#p5">visuals with p5.js</a>
         </NavLink>
-        <NavLink href="/">
-          <a href="/">audio with tone.js</a>
+        <NavLink href="#audio">
+          <a href="#audio">audio with tone.js</a>
         </NavLink>
-        <NavLink href="/">
-          <a href="/">generative system</a>
+        <NavLink href="#generative">
+          <a href="#generative">generative system</a>
         </NavLink>
       </NavBar>
 
-      <TextSection>
+      <TextSection id="#intro">
         <Name>Introduction </Name>
 
         <TextDescription>
           Inspired by Brian Eno’s use of generative techniques to create audio
-          and visual compositions, The project of audible generative recursion
-          is to create a visual system of animating visuals that generate both
+          and visual compositions, audible generative recursion's goal is to
+          create a visual system of animating visuals that generate both
           abstract art and infinite, generative musical compositions.
         </TextDescription>
 
@@ -126,7 +149,7 @@ export default function Documentation() {
         </TextDescription>
       </TextSection>
 
-      <TextSection>
+      <TextSection id="tech">
         <Name>technoligies used </Name>
 
         <TextDescription>
@@ -146,29 +169,25 @@ export default function Documentation() {
           UI components.{" "}
         </TextDescription>
       </TextSection>
-      <TextSection>
+      <TextSection id="p5">
         <Name>visuals with p5.js </Name>
 
         <TextDescription>
-          P5.js is a JavaScript library for creative coding. For this project I
-          utilized the react framework react-p5 in order to incorporate the
-          visuals into the React project with all other frameworks.
+          <a href="https://p5js.org/">P5.js</a> is a JavaScript library for
+          creative coding. For this project I utilized the react framework
+          react-p5 in order to incorporate the visuals into the React project
+          with all other frameworks.
         </TextDescription>
 
         <TextDescription>
-          In addition, all audible components of the project will be generated
-          using the Javascript synthesis engine framework Tone.js.
-        </TextDescription>
-
-        <TextDescription>
-          Finally, to further connect these two technologies and make a web
-          application, React.js was used to import these frameworks and create
-          UI components.{" "}
+          P5.js allows us to create visual elements within our javascript code
+          and animate and manipulate all visual parameters programmatically.{" "}
+          <br /> <br /> <a href="https://p5js.org/">P5.js documentation</a>
         </TextDescription>
 
         <img src={Example} />
       </TextSection>
-      <TextSection>
+      <TextSection id="#audio">
         <Name>audio with tone.js </Name>
 
         <TextDescription>
@@ -181,7 +200,8 @@ export default function Documentation() {
           Tone.js is a Web Audio framework for creating interactive music in the
           browser. Utilizing the built-in synthesizer engine it allows us to
           create tones triggered from the generative system we create. Tone.js
-          allows to add reverb, delay and pitch to create a musical system.
+          allows to add reverb, delay and pitch to create a musical system.<br /><br />
+          <a href="https://tonejs.github.io/">tone.js documentation</a>
         </TextDescription>
 
         <code>
@@ -194,7 +214,7 @@ export default function Documentation() {
           synth.triggerAttackRelease("C4", "8n");
         </code>
       </TextSection>
-      <TextSection>
+      <TextSection id="#generative">
         <Name>generative system </Name>
         <TextDescription>
           There are two main elements of sound generation that are triggered
@@ -211,6 +231,20 @@ export default function Documentation() {
           will also play a note.
         </TextDescription>
         <img src={Generation} />
+      </TextSection>
+
+      <TextSection>
+        <Name> a note on perlin noise </Name>
+
+        <TextDescription>
+          In order to generate a more organic randomization with the curves and
+          form, instead of using a Javascripts random function, I ultimately
+          decided to use Perlin Noise, which is built in to p5.js. Perlin noise
+          is a type of gradient noise originally developed by Ken Perlin. By
+          utilizing Perlin noise in our generative visual system it provides a
+          level of realism and human like quality to our visuals that otherwise
+          would look completely random.
+        </TextDescription>
       </TextSection>
     </MainContainer>
   );
