@@ -114,7 +114,9 @@ export default function Documentation() {
           northeastern university
         </SubHeader>
         <NavLink href="https://github.com/samgildea/audible-generative-recursion">
-          <a href="https://github.com/samgildea/audible-generative-recursion">github repository</a>
+          <a href="https://github.com/samgildea/audible-generative-recursion">
+            github repository
+          </a>
         </NavLink>
         <NavLink href="#intro">
           <a href="#intro">introduction</a>
@@ -202,7 +204,9 @@ export default function Documentation() {
           Tone.js is a Web Audio framework for creating interactive music in the
           browser. Utilizing the built-in synthesizer engine it allows us to
           create tones triggered from the generative system we create. Tone.js
-          allows to add reverb, delay and pitch to create a musical system.<br /><br />
+          allows to add reverb, delay and pitch to create a musical system.
+          <br />
+          <br />
           <a href="https://tonejs.github.io/">tone.js documentation</a>
         </TextDescription>
 
@@ -246,6 +250,24 @@ export default function Documentation() {
           utilizing Perlin noise in our generative visual system it provides a
           level of realism and human like quality to our visuals that otherwise
           would look completely random.
+          <br />
+          <br />
+          <a href="https://en.wikipedia.org/wiki/Perlin_noise">more on perlin noise</a>
+        </TextDescription>
+      </TextSection>
+      <TextSection>
+        <Name>sounds made</Name>
+        <TextDescription>
+          <iframe
+            title="embedded tracks"
+            width="100%"
+            height="450"
+            scrolling="no"
+            frameborder="no"
+            allow="autoplay"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1431094465&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+          ></iframe>
+       
         </TextDescription>
       </TextSection>
     </MainContainer>

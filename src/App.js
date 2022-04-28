@@ -13,23 +13,19 @@ const GrainImage = styled.img`
 `;
 
 const HelpLink = styled.a`
-position: absolute;
-right: 10px;
-top: 10px;
-text-decoration: none;
-color: black;
-border: solid;
-padding: 10px;
-border-radius: 100px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  text-decoration: none;
+  color: black;
+  border: solid;
+  padding: 10px;
+  border-radius: 100px;
 
-&:hover {
-  color: red;
-}
-
-
-`
-
-
+  &:hover {
+    color: red;
+  }
+`;
 
 function App() {
   const [windowWidth, setWindowWidth] = useState(0);
@@ -45,9 +41,7 @@ function App() {
   const reverb2 = new Tone.Reverb(0.8).toDestination();
 
   const pingPong = new Tone.PingPongDelay("4n", 0.6).toDestination();
-  // const synth = new Tone.AMSynth().chain(reverb, pingPong, reverb2);
   const synth = new Tone.MonoSynth().chain(reverb, pingPong, reverb2);
-  // synth.oscillator.type = "square";
   function playNote(note) {
     synth.triggerAttackRelease(`${note}`, "8n");
   }
@@ -75,25 +69,12 @@ function App() {
     p5.noFill();
     p5.frameRate(30);
     t = 0;
-    // setStartingPosition({
-    //   x: Math.random() * windowWidth,
-    //   y: Math.random() * windowHeight,
-    // });
   };
 
   function windowResized(p5) {
     p5.resizeCanvas(p5.windowWidth, p5.windowHeight);
   }
-  var x = 0;
 
-  let p1 = { x: -200, y: 175, z: 0 };
-  let p2 = { x: -200, y: 25, z: 0 };
-  let p3 = { x: 150, y: 25, z: 0 };
-  let p4 = { x: 275, y: 175, z: 0 };
-  let x1 = 0;
-  let x2 = 85;
-  let y1 = 0;
-  let y2 = 75;
 
   let startingPoint = 50;
   let bValue = 145;
@@ -105,14 +86,8 @@ function App() {
   let note1 = "";
 
   let size = 65;
-  let size2 = 50;
-  let size3 = 50;
-  let size4 = 50;
 
   let sizeIncrement = 1;
-  let sizeIncrement2 = 1;
-  let sizeIncrement3 = 1;
-  let sizeIncrement4 = 1;
 
   const draw = (p5) => {
     let n = 3;
@@ -252,22 +227,12 @@ function App() {
       noteText = charm[Math.floor(Math.random() * charm.length)];
       note1 = cmajor[Math.floor(Math.random() * charm.length)];
       audio && playNote(note1);
-
-      // setNoteText(charm[0]);
-
-      // p5.fill(230, 109, 54, 255);
-      // p5.ellipse(
-      //   windowWidth * Math.random(),
-      //   windowWidth * Math.random(),
-      //   Math.random() * 115
-      // );
     }
 
     if (p5.mouseIsPressed) {
       audio = true;
       Tone.start();
     }
-
 
     size += sizeIncrement;
 
