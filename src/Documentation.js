@@ -21,7 +21,7 @@ const NavBar = styled.div`
 
 export const MainHeader = styled.div`
   font-family: "Helvetica";
-  font-size: 60px;
+  font-size: 48px;
   font-weight: bold;
   width: 27vw;
   padding-top: 27px;
@@ -40,6 +40,10 @@ export const Name = styled.div`
   font-size: 24px;
   width: 27vw;
   padding-top: 27px;
+
+  @media (max-width: 768px) {
+    width: 80vw;
+  }
 `;
 
 export const NavLink = styled.div`
@@ -190,6 +194,13 @@ export default function Documentation() {
         </TextDescription>
 
         <img src={Example} />
+
+        <TextDescription>
+          In addition, p5 has an expansive noise based randomization library
+          that allows us to create the generative system in an organic way. All
+          the visual elements are randomized and generated using various
+          algorithms to satisfy the goal of having infinite, generative visuals.
+        </TextDescription>
       </TextSection>
       <TextSection id="audio">
         <Name>audio with tone.js </Name>
@@ -224,19 +235,25 @@ export default function Documentation() {
         <Name>generative system </Name>
         <TextDescription>
           There are two main elements of sound generation that are triggered
-          based on the visuals. The first element of a note playing is triggered
-          by an ellipse simulating a tape loop. When the ellipse reaches a
-          circumference of 198.3 pixels, the system will play a note.
+          based on the visuals. The first element of sound generation is
+          triggered by an ellipse simulating a tape loop. When the ellipse
+          reaches a circumference of 198.3 pixels, the system will play a note
+          randomly based on the scale of the piece.
         </TextDescription>
         <img className="diagram" src={TapeDiagram} />
         <img src={TapeLoop} />
         <TextDescription>
           The second element of sound generation in the system is based on the
-          screen width and height of the generation. When the randomized noise
-          based bezier curve's edge reached the edge of the screen the system
-          will also play a note.
+          screen width and height of the system. When the randomized noise based
+          bezier curve's edge reached the edge of the screen the system will
+          also play a note randomly based on the scale of the piece.
         </TextDescription>
         <img src={Generation} />
+
+        <TextDescription>
+          Finally, all the visual elements use the perlin noise algorithm to
+          change location and color based on the previous positions parameters.
+        </TextDescription>
       </TextSection>
 
       <TextSection>
@@ -252,7 +269,9 @@ export default function Documentation() {
           would look completely random.
           <br />
           <br />
-          <a href="https://en.wikipedia.org/wiki/Perlin_noise">more on perlin noise</a>
+          <a href="https://en.wikipedia.org/wiki/Perlin_noise">
+            more on perlin noise
+          </a>
         </TextDescription>
       </TextSection>
       <TextSection>
@@ -267,7 +286,6 @@ export default function Documentation() {
             allow="autoplay"
             src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1431094465&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
           ></iframe>
-       
         </TextDescription>
       </TextSection>
     </MainContainer>
